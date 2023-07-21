@@ -43,29 +43,41 @@ account = Bank(account_name, account_age, account_gender)
 condition = True
 while condition:
     choice = input('''Welcome to our online banking system!
-0 - to deposit an amount of money
-1 - to withdraw an amount of money
-2 - to view the balance
+1 - to deposit an amount of money
+2 - to withdraw an amount of money
+3 - to view the balance
+4 - to create another account
+5 - to switch to another account
 Type 'quit' to exit.
 Enter your choice: ''')
     
-    if choice == '0':
+    if choice == '1':
         # Deposit Money Option Selected
         print()
         amount = int(input('Enter the amount you want to deposit: '))
         account.deposit(amount)
         print()
-    elif choice == '1':
+    elif choice == '2':
         # Withdraw Money Option Selected
         print()
         amount = int(input('Enter the amount you want to withdraw: '))
         account.withdraw(amount)
         print()
-    elif choice == '2':
+    elif choice == '3':
         # View Balance Option Selected
         print()
         account.view_balance()
         print()
+    elif choice == '4':
+        # Create another account
+        print()
+        account_name = input("Add an user name in the bank database: ")
+        account_age = input('Add the user age: ')
+        account_gender = input("Add the user gender: ")
+        account = Bank(account_name, account_age, account_gender)
+        print('Succesfully created another account')
+        print()
+        
     elif choice.lower() == 'quit':
         choice = str(input("Are you sure you want to quite the program? (yes/no): "))
         if choice == 'yes':
@@ -73,7 +85,7 @@ Enter your choice: ''')
             condition=False
         if choice == 'no':
             continue
-        
+         
     else:
         print()
         print("Invalid choice. Please try again.")
